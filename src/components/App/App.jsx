@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Container, Message } from "./App.styled";
 
 import DataInputForm from '../DataInputForm/DataInputForm';
@@ -11,24 +11,22 @@ import langContext from 'langContext';
 import locale from '../../materials/langauges.json';
 import backgroundImg from '../../images/background.jpg';
 
+import { addItem } from 'redux/actions';
+
 const  App = () => {
 
+  const {items }= useSelector(store => store.contacts);
+
   const [contacts, setContacts] = useState(()=>localContacts('contacts'));
-  const [filter, setFilter] = useState("");
   //Відмальовування активної мови відбувається в Langaguge, а цей стейт потрібен для контексту
   const [langauge, setLangauge] = useState(()=>localContacts('langauge'));
   const [background, setBackground] = useState(()=>localContacts('background'));
 
   const content = locale[langauge];
 
-  // defaultContacts = [
-  //   {name: 'Rosie Simpson', number: '459-12-56'},
-  //   {name: 'Hermione Kline', number: '443-89-12'},
-  //   {name: 'Eden Clements', number: '645-17-79'},
-  //   {name: 'Annie Copeland', number: '227-91-26'},
-  // ];
+  const dispatch = useDispatch();
 
-  //"Махінацію" з цією функцією прийшлось зробити із-за строгого режима. Під час перезавантаження сторінки useEffect запускався два рази і перезатирав значення LocaleStorage на пустий масив
+
   function localContacts(key){
     const data = localStorage.getItem(key);
     if(!data){
@@ -49,17 +47,17 @@ const  App = () => {
   },[background]);
 
   const addContact = useCallback((name, number)=>{
-    if (contacts.find(contact => contact.name === name)){
+    if (items.find(item => item.name === name)){
       alert(name + " " + content.notific);
       return;
     };
-    setContacts(prevState=>{return [{name, number}, ...prevState]});
-  },[contacts, content.notific]);
 
+    const action = addItem({name, number});
+    dispatch(action);
 
-  const handleFilter=(filter)=>{
-    setFilter(filter);
-  };
+    // setContacts(prevState=>{return [{name, number}, ...prevState]});
+  },[items, content.notific, dispatch]);
+
 
   const handleBackground=(newbackground)=>{
     setBackground(newbackground);
@@ -71,10 +69,6 @@ const  App = () => {
   },[contacts]);
 
   const changeLangauge = useCallback((lang)=>{return setLangauge(lang)},[setLangauge])
- 
-  const normalizeTodos = filter.toLowerCase();
-  const visibleContacts = contacts.filter(contact => contact.name.toLowerCase().includes(normalizeTodos));
-  
 
     return (
       <langContext. Provider value={langauge}>
@@ -92,9 +86,8 @@ const  App = () => {
           </Section>
           {contacts.length > 0 
           ? <Section>{content.contacts.header}
-              <Filter handleFilter={handleFilter}/>
+              <Filter />
               <Contacts 
-                contacts={visibleContacts}
                 removeConactApp={removeConactApp}
               />
             </Section>

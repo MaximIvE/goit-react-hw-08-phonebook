@@ -1,11 +1,16 @@
 import { useContext } from 'react';
+import { useDispatch } from "react-redux";
+
 import { nanoid } from 'nanoid';
-import PropTypes from 'prop-types';
 import { FilterSection,Input } from "./Filter.styled";
 import langContext from 'langContext';
-import locale from '../../materials/langauges.json';
 
-export default function Filter({handleFilter}){
+import locale from '../../materials/langauges.json';
+import { addFilter } from 'redux/actions'; 
+
+export default function Filter(){
+
+    const dispatch = useDispatch()
     const idInputFilter = nanoid();
 
     const lang= useContext(langContext);
@@ -16,12 +21,8 @@ export default function Filter({handleFilter}){
             <Input 
                 id={idInputFilter}
                 type="text"
-                onChange={e=>handleFilter(e.currentTarget.value.trim())}
+                onChange={e => dispatch(addFilter(e.currentTarget.value.trim()))}
                 placeholder={content.filtrPlaceholder}>
             </Input>
         </FilterSection>
 };
-
-Filter.propTypes={
-    handleFilter: PropTypes.func.isRequired,
-}
