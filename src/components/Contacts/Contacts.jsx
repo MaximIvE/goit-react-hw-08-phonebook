@@ -10,6 +10,7 @@ export default function Contacts({removeConactApp}){
     
     const {items, filter }= useSelector(store => store.contacts);
     const normalizeTodos = filter.toLowerCase();
+    
     const visibleContacts = items.filter(contact => contact.name.toLowerCase().includes(normalizeTodos));
 
     const getCardMarking = useMemo(() => {

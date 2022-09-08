@@ -11,13 +11,13 @@ import langContext from 'langContext';
 import locale from '../../materials/langauges.json';
 import backgroundImg from '../../images/background.jpg';
 
-import { addItem } from 'redux/actions';
+import { addItem, removeItem } from 'redux/actions';
 
 const  App = () => {
 
-  const {items }= useSelector(store => store.contacts);
+  const { items } = useSelector(store => store.contacts);
 
-  const [contacts, setContacts] = useState(()=>localContacts('contacts'));
+  // const [contacts] = useState(()=>localContacts('contacts'));
   //Відмальовування активної мови відбувається в Langaguge, а цей стейт потрібен для контексту
   const [langauge, setLangauge] = useState(()=>localContacts('langauge'));
   const [background, setBackground] = useState(()=>localContacts('background'));
@@ -30,7 +30,7 @@ const  App = () => {
   function localContacts(key){
     const data = localStorage.getItem(key);
     if(!data){
-      if(key === 'contacts')return[];
+      // if(key === 'contacts')return[];
       if(key === 'langauge')return'Ua';
       if(key === 'background')return backgroundImg;
     }
@@ -39,52 +39,36 @@ const  App = () => {
   };
   
   useEffect(()=>{
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  },[contacts]);
-
-  useEffect(()=>{
     localStorage.setItem('background', JSON.stringify(background));
   },[background]);
 
+
   const addContact = useCallback((name, number)=>{
-    if (items.find(item => item.name === name)){
-      alert(name + " " + content.notific);
-      return;
-    };
-
-    const action = addItem({name, number});
-    dispatch(action);
-
-    // setContacts(prevState=>{return [{name, number}, ...prevState]});
+    if (items.find(item => item.name === name)) return alert(name + " " + content.notific);
+    dispatch( addItem({ name, number }) );
+   
   },[items, content.notific, dispatch]);
-
-
-  const handleBackground=(newbackground)=>{
-    setBackground(newbackground);
-  };
-
-  const removeConactApp=useCallback((id)=>{
-    const newContacts = contacts.filter(contact => {return ((contact.name) !== id )});
-    setContacts(newContacts);
-  },[contacts]);
-
-  const changeLangauge = useCallback((lang)=>{return setLangauge(lang)},[setLangauge])
+ 
+  const removeConactApp = useCallback( id => {
+    dispatch(removeItem(id));
+    // localStorage.setItem('contacts', JSON.stringify(items));
+  },[dispatch]);
 
     return (
       <langContext. Provider value={langauge}>
-      
+  
       <Container bg={background}>
           <Settings 
         langauge={langauge} 
-        changeLangauge={changeLangauge}
-        changeBackground={handleBackground}
+        changeLangauge = {useCallback( lang => setLangauge(lang),[setLangauge] )}
+        changeBackground = {newbackground => setBackground(newbackground)}
       />
           <Section>{content.phonebook.header}
             {<DataInputForm 
               addContact={addContact}
             />}
           </Section>
-          {contacts.length > 0 
+          {items.length > 0 
           ? <Section>{content.contacts.header}
               <Filter />
               <Contacts 
