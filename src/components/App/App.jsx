@@ -11,7 +11,7 @@ import langContext from 'langContext';
 import locale from '../../materials/langauges.json';
 import backgroundImg from '../../images/background.jpg';
 
-import { addItem, removeItem } from 'redux/actions';
+import { addItem, removeItem } from 'redux/slice';
 
 const  App = () => {
 
@@ -25,7 +25,6 @@ const  App = () => {
   const content = locale[langauge];
 
   const dispatch = useDispatch();
-
 
   function localContacts(key){
     const data = localStorage.getItem(key);
