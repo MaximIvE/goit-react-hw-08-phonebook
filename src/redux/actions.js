@@ -1,22 +1,8 @@
-import { ADD_ITEM, ADD_FILTER, REMOVE_ITEM } from "./types";
+import { createAction } from "@reduxjs/toolkit";
 
-export const addItem = (payload) => {
-    return {
-        type: ADD_ITEM,
-        payload,
-    }
-};
 
-export const removeItem = (payload) => {
-    return {
-        type: REMOVE_ITEM,
-        payload,
-    }
-};
+export const addItem = createAction("item/add");
 
-export const addFilter = (payload) => {
-    return {
-        type: ADD_FILTER,
-        payload,
-    }
-};
+export const removeItem = createAction("item/remove");
+
+export const addFilter = createAction("filter/add");
