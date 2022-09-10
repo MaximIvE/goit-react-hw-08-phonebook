@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
 padding: 4px 12px;
+max-width: 1200px;
 
     &:first-child{
         flex-basis: 20vw;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, Message } from "./App.styled";
+import { Background, Container, Message } from "./App.styled";
 
 import DataInputForm from '../DataInputForm/DataInputForm';
 import Section from '../Section/Section';
@@ -55,7 +55,7 @@ const  App = () => {
 
     return (
       <langContext. Provider value={langauge}>
-  
+      <Background bg={background}>
       <Container bg={background}>
           <Settings 
         langauge={langauge} 
@@ -76,6 +76,7 @@ const  App = () => {
             </Section>
           : <Message>{content.message}</Message>}
       </Container>
+      </Background>
       </langContext. Provider>
     );
 };

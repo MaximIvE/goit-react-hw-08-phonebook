@@ -1,10 +1,23 @@
 import styled from 'styled-components';
 
 
-export const Container = styled.div`
+export const Background = styled.div`
+    background-color: rgba(255, 255, 255, 0.9); 
     background-image:  url(${props=> props.bg});
     background-repeat: no-repeat;
     background-size: cover;
+    position: sticky;
+`;
+
+
+export const Container = styled.div`
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    
+    
+    
     background-attachment: fixed;
     background-position: 50% 50%;
     height: 100vh;
