@@ -8,7 +8,8 @@ import PropTypes from 'prop-types';
 
 export default function Contacts({removeConactApp}){
     
-    const {items, filter }= useSelector(store => store.contacts);
+    const {items, filter } = useSelector(store => store);
+    
     const normalizeTodos = filter.toLowerCase();
     
     const visibleContacts = items.filter(contact => contact.name.toLowerCase().includes(normalizeTodos));

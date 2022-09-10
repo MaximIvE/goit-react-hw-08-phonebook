@@ -6,7 +6,7 @@ import { FilterSection,Input } from "./Filter.styled";
 import langContext from 'langContext';
 
 import locale from '../../materials/langauges.json';
-import { addFilter } from 'redux/slice'; 
+import { addFilter } from 'redux/filter/filter-slice'; 
 
 export default function Filter(){
 

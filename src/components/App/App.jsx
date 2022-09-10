@@ -11,11 +11,11 @@ import langContext from 'langContext';
 import locale from '../../materials/langauges.json';
 import backgroundImg from '../../images/background.jpg';
 
-import { addItem, removeItem } from 'redux/slice';
+import { addItem, removeItem } from 'redux/items/items-slice';
 
 const  App = () => {
 
-  const { items } = useSelector(store => store.contacts);
+  const { items } = useSelector(store => store);
 
   // const [contacts] = useState(()=>localContacts('contacts'));
   //Відмальовування активної мови відбувається в Langaguge, а цей стейт потрібен для контексту
