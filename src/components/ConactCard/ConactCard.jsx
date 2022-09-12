@@ -1,4 +1,4 @@
-import { memo, useContext} from 'react';
+import { memo, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Name, Phone, ButtonCard } from "./ConactCard .styled";
 import langContext from 'langContext';

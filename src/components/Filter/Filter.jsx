@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { nanoid } from 'nanoid';
 import { FilterSection,Input } from "./Filter.styled";
@@ -12,6 +12,7 @@ export default function Filter(){
 
     const dispatch = useDispatch()
     const idInputFilter = nanoid();
+    const {filter} = useSelector(store => store);
 
     const lang= useContext(langContext);
     const content=locale[lang].contacts;
@@ -21,7 +22,8 @@ export default function Filter(){
             <Input 
                 id={idInputFilter}
                 type="text"
-                onChange={e => dispatch(addFilter(e.currentTarget.value.trim()))}
+                onChange={e => dispatch(addFilter(e.currentTarget.value.trim())) }
+                value={filter}
                 placeholder={content.filtrPlaceholder}>
             </Input>
         </FilterSection>
