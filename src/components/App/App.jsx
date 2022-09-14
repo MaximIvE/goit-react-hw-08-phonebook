@@ -11,8 +11,8 @@ import langContext from 'langContext';
 import locale from '../../materials/langauges.json';
 import backgroundImg from '../../images/background.jpg';
 
-import { addItem, removeItems } from 'redux/items/items-actions';
-import { fetchItems } from 'redux/items/items-operations';
+// import { addItem, removeItems } from 'redux/items/items-actions';
+import { fetchItems, addItem, removeItem } from 'redux/items/items-operations';
 
 
 const  App = () => {
@@ -50,12 +50,12 @@ const  App = () => {
 
   const addContact = useCallback((name, phone)=>{
     if (items.find(item => item.name === name)) return alert(name + " " + content.notific);
-    dispatch( addItem({ name, phone }) );
+    dispatch( addItem({name, phone}) );
    
   },[items, content.notific, dispatch]);
  
   const removeConactApp = useCallback( id => {
-    dispatch(removeItems(id));
+    dispatch(removeItem(id));
     // localStorage.setItem('contacts', JSON.stringify(items));
   },[dispatch]);
 
