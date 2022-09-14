@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import store from "redux/store";
+// import store from "redux/store";
 
 const initialStore = {
         items: [],
