@@ -1,1 +1,1 @@
-export {default} from './ImageApi';
+export {default} from '../shared/api/imageApi';

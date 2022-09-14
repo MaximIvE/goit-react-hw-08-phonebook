@@ -12,6 +12,7 @@ import locale from '../../materials/langauges.json';
 import backgroundImg from '../../images/background.jpg';
 
 import { addItem, removeItem } from 'redux/items/items-slice';
+import { fetchItems } from 'redux/items/items-operations';
 
 const  App = () => {
 
@@ -37,6 +38,11 @@ const  App = () => {
     if (parseContacts)return parseContacts;
   };
   
+  useEffect(()=>{
+    console.log("Запустився useEffect");
+    dispatch(fetchItems);
+  },[dispatch]);
+
   useEffect(()=>{
     localStorage.setItem('background', JSON.stringify(background));
   },[background]);

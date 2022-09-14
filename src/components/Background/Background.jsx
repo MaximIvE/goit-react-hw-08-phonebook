@@ -1,5 +1,5 @@
 import { useState} from 'react';
-import imageApi from '../../utils/imageApi';
+import imageApi from '../../shared/api/imageApi';
 import Modal from 'components/Modal';
 import ImageGallery from '../ImageGallery/ImageGallery';
 
