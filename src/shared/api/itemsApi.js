@@ -5,6 +5,6 @@ const instance = axios.create({
 });
 
 export const getItems = async () => {
-    const {data} = await instance.get("/")
+    const {data} = await instance.get("/");
     return data;
 }

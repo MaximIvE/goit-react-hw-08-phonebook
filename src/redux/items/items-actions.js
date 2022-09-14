@@ -1,15 +1,9 @@
-import { ADD_ITEM, REMOVE_ITEM} from "./items-types";
+import { createAction } from "@reduxjs/toolkit";
 
-export const addItem = (payload) => {
-    return {
-        type: ADD_ITEM,
-        payload,
-    }
-};
+export const fetchItemsLoading = createAction("item/fetch/loading");
+export const fetchItemsSuccess = createAction("item/fetch/success");
+export const fetchItemsError = createAction("item/fetch/error");
 
-export const removeItem = (payload) => {
-    return {
-        type: REMOVE_ITEM,
-        payload,
-    }
-};
+
+export const addItem = createAction("item/add");
+export const removeItems = createAction("item/remove");

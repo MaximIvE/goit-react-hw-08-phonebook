@@ -1,20 +1,21 @@
-import { ADD_ITEM, REMOVE_ITEM} from "./items-types";
+import { createReducer } from "@reduxjs/toolkit";
+import { addItem, removeItems, fetchItemsLoading, fetchItemsSuccess, fetchItemsError } from "./items-actions";
 
-const initialState = [];
-
-const itemsReducer = (store = initialState, action) => {
-    const {type, payload} = action;
-    switch (type){
-        case ADD_ITEM:
-            return [...store, payload];
-
-        case REMOVE_ITEM:
-            return store.filter(contact => contact.name !== payload);
-        
-        default: 
-            return store;
-
-    }
+const initialState = {
+    items: [],
+    loading: false,
+    error: null,
 };
+
+const itemsReducer = createReducer(initialState, {
+
+    [fetchItemsLoading]: (store) => {return {...store, loading: true, error: null}},
+    [fetchItemsSuccess]: (store, {payload}) => {return {...store, items: payload, loading: false}},
+    [fetchItemsError]: (store, {payload}) => {return {...store, error: payload, loading: false}},
+
+    [addItem.type]: (store, {payload}) =>   {return {...store, items: [...store.items, payload]}},
+    [removeItems.type]: (store, {payload}) => {return {...store, items: [...store.items.filter(contact => contact.name !== payload)]}},
+        
+});
 
 export default itemsReducer;

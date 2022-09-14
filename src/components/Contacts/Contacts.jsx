@@ -6,14 +6,13 @@ import ConactCard from "components/ConactCard/ConactCard";
 import PropTypes from 'prop-types';
 
 
-
 export default function Contacts({removeConactApp}){
     
     const dispatch = useDispatch();
-    const {items, filter } = useSelector(store => store);
-    
+    const {contacts, filter } = useSelector(store => store);
+    const { items } = contacts;
     const normalizeTodos = filter.toLowerCase();
-    
+
     const visibleContacts = items.filter(contact => contact.name.toLowerCase().includes(normalizeTodos));
 
     const getCardMarking = useMemo(() => {
@@ -22,7 +21,7 @@ export default function Contacts({removeConactApp}){
                 <ConactCard 
             key={user.name}
             name = {user.name}
-            number = {user.number}
+            number = {user.phone}
             removeCard={(e) => { if (visibleContacts.length === 1) dispatch(setFilter("")); removeConactApp(e.currentTarget.name); }}/>
             )
         );

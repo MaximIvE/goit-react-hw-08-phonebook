@@ -6,14 +6,14 @@ import storage from 'redux-persist/lib/storage';
 
 
 const rootReducer = combineReducers({
-  items: itemsReducer,
+  contacts: itemsReducer,
   filter: filterReducer,
 });
 
 const persistConfig = {
   key: "contacts",
   storage,
-  whitelist: ["items"],
+  whitelist: ["contacts"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
