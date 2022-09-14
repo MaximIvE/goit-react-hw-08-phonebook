@@ -6,7 +6,7 @@ import { FilterSection,Input } from "./Filter.styled";
 import langContext from 'langContext';
 
 import locale from '../../materials/langauges.json';
-import { addFilter } from 'redux/filter/filter-slice'; 
+import { setFilter } from 'redux/filter/filter-actions'; 
 
 export default function Filter(){
 
@@ -22,7 +22,7 @@ export default function Filter(){
             <Input 
                 id={idInputFilter}
                 type="text"
-                onChange={e => dispatch(addFilter(e.currentTarget.value.trim())) }
+                onChange={e => dispatch(setFilter(e.currentTarget.value.trim())) }
                 value={filter}
                 placeholder={content.filtrPlaceholder}>
             </Input>

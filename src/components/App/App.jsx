@@ -11,7 +11,7 @@ import langContext from 'langContext';
 import locale from '../../materials/langauges.json';
 import backgroundImg from '../../images/background.jpg';
 
-import { addItem, removeItem } from 'redux/items/items-slice';
+import { addItem, removeItem } from 'redux/items/items-actions';
 import { fetchItems } from 'redux/items/items-operations';
 
 const  App = () => {

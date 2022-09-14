@@ -1,4 +1,4 @@
-import { getItems } from "shared/api/itemsApi";
+// import { getItems } from "shared/api/itemsApi";
 
 //Створюємо операцію
 export const fetchItems = () => {

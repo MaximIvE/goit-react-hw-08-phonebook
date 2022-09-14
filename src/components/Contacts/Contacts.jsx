@@ -1,6 +1,6 @@
 import {useMemo} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addFilter } from 'redux/filter/filter-slice'; 
+import { setFilter } from 'redux/filter/filter-actions'; 
 import {List} from './Contacts.styled';
 import ConactCard from "components/ConactCard/ConactCard";
 import PropTypes from 'prop-types';
@@ -23,7 +23,7 @@ export default function Contacts({removeConactApp}){
             key={user.name}
             name = {user.name}
             number = {user.number}
-            removeCard={(e) => { if (visibleContacts.length === 1) dispatch(addFilter("")); removeConactApp(e.currentTarget.name); }}/>
+            removeCard={(e) => { if (visibleContacts.length === 1) dispatch(setFilter("")); removeConactApp(e.currentTarget.name); }}/>
             )
         );
     },[removeConactApp, visibleContacts, dispatch]);

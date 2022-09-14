@@ -1,12 +1,13 @@
 import { configureStore, combineReducers  } from '@reduxjs/toolkit';
-import itemsSlice from "./items/items-slice";
-import filterSlice from "./filter/filter-slice";
+import itemsReducer from './items/items-reducer'; 
+import filterReducer from './filter/filter-reducer';
 import { persistStore, persistReducer, PERSIST} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+
 const rootReducer = combineReducers({
-  items: itemsSlice,
-  filter: filterSlice,
+  items: itemsReducer,
+  filter: filterReducer,
 });
 
 const persistConfig = {
