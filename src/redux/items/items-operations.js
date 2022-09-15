@@ -33,15 +33,13 @@ return func;
 
 export const removeItem = (id) => {
 const func = async (dispatch) => {
-    console.log("Запускається запит на бек по видаленю книги");
-    // try{
-    //     dispatch(actions.addItemsLoading(item));
-    //     const data = await api.addItems();
-    //     if ( data.status !== 200){ throw new Error (`${data.status} | ${data.statusText}`)};
-    //     dispatch(actions.addItemsSuccess(data));
-    // }catch(error){
-    //     dispatch(actions.addItemsError(error.message));
-    // }
+    try{
+        dispatch(actions.removeItemsLoading());
+        await api.removeItemApi(id);
+        dispatch(actions.removeItemsSuccess(id));
+    }catch(error){
+        dispatch(actions.removeItemsError(error.message));
+    }
 };
 return func;
 }

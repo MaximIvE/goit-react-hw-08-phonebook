@@ -19,7 +19,8 @@ export default function Contacts({removeConactApp}){
        
         return (visibleContacts.map( (user) =>
                 <ConactCard 
-            key={user.name}
+            key={user.name + user.id}
+            id={user.id}
             name = {user.name}
             number = {user.phone}
             removeCard={(e) => { if (visibleContacts.length === 1) dispatch(setFilter("")); removeConactApp(e.currentTarget.name); }}/>
