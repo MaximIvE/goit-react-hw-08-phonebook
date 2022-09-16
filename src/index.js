@@ -5,6 +5,7 @@ import App from 'components/App/App.jsx';
 import './index.css';
 
 import { store, persistor } from "./redux/store";
+// import { store } from "./redux/store";
 import { Provider } from 'react-redux';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

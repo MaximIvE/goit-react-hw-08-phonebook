@@ -11,13 +11,14 @@ import langContext from 'langContext';
 import locale from '../../materials/langauges.json';
 import backgroundImg from '../../images/background.jpg';
 
-import { addItem, removeItem } from 'redux/items/items-slice';
-import { fetchItems } from 'redux/items/items-operations';
+// import { addItem, removeItems } from 'redux/items/items-actions';
+import { fetchItems, addItem, removeItem } from 'redux/items/items-operations';
+
 
 const  App = () => {
 
-  const { items } = useSelector(store => store);
-
+  const  {items} = useSelector(store => store.contacts);
+  // console.log("items", items);
   // const [contacts] = useState(()=>localContacts('contacts'));
   //Відмальовування активної мови відбувається в Langaguge, а цей стейт потрібен для контексту
   const [langauge, setLangauge] = useState(()=>localContacts('langauge'));
@@ -39,8 +40,7 @@ const  App = () => {
   };
   
   useEffect(()=>{
-    console.log("Запустився useEffect");
-    dispatch(fetchItems);
+    dispatch(fetchItems());
   },[dispatch]);
 
   useEffect(()=>{
@@ -48,9 +48,9 @@ const  App = () => {
   },[background]);
 
 
-  const addContact = useCallback((name, number)=>{
+  const addContact = useCallback((name, phone)=>{
     if (items.find(item => item.name === name)) return alert(name + " " + content.notific);
-    dispatch( addItem({ name, number }) );
+    dispatch( addItem({name, phone}) );
    
   },[items, content.notific, dispatch]);
  
