@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import * as api from "shared/api/itemsApi";
-// import actions from "./items-actions";
+
 
 //Створюємо операцію по запиту для отримання даних при першому завантаженнню сторінки
 export const fetchItems = createAsyncThunk(
@@ -40,8 +40,6 @@ export const removeItem = createAsyncThunk(
         // }
     }
 );
-
-
 
 
 
