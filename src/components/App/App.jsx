@@ -19,7 +19,6 @@ const  App = () => {
 
   const  {items} = useSelector(store => store.contacts);
   // console.log("items", items);
-  // const [contacts] = useState(()=>localContacts('contacts'));
   //Відмальовування активної мови відбувається в Langaguge, а цей стейт потрібен для контексту
   const [langauge, setLangauge] = useState(()=>localContacts('langauge'));
   const [background, setBackground] = useState(()=>localContacts('background'));
@@ -31,7 +30,6 @@ const  App = () => {
   function localContacts(key){
     const data = localStorage.getItem(key);
     if(!data){
-      // if(key === 'contacts')return[];
       if(key === 'langauge')return'Ua';
       if(key === 'background')return backgroundImg;
     }
@@ -56,7 +54,6 @@ const  App = () => {
  
   const removeConactApp = useCallback( id => {
     dispatch(removeItem(id));
-    // localStorage.setItem('contacts', JSON.stringify(items));
   },[dispatch]);
 
     return (
