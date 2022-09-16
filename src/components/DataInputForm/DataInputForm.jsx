@@ -4,19 +4,14 @@ import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import langContext from 'langContext';
 
-
-import locale from '../../materials/langauges.json';
-
-
+import locale from '../../shared/materials/langauges.json';
 import { DataInput,ButtonForm } from './DataInputForm.styled';
 
 
 const DataInputForm = ({addContact})=>{
 
-
         const idInputName = nanoid();
         const idInputNumber = nanoid();
-
 
         const handleSubmit = e => {
             e.preventDefault();

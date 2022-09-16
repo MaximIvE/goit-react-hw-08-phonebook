@@ -8,7 +8,7 @@ import Contacts from '../Contacts/Contacts';
 import Filter from 'components/Filter/Filter';
 import Settings from 'components/Settings';
 import langContext from 'langContext';
-import locale from '../../materials/langauges.json';
+import locale from '../../shared/materials/langauges.json';
 import backgroundImg from '../../images/background.jpg';
 
 // import { addItem, removeItems } from 'redux/items/items-actions';

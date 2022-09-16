@@ -2,7 +2,7 @@ import { memo, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Name, Phone, ButtonCard } from "./ConactCard .styled";
 import langContext from 'langContext';
-import locale from '../../materials/langauges.json';
+import locale from '../../shared/materials/langauges.json';
 
 
 function ConactCard({name, id, number, removeCard}){

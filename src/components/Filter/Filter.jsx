@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 import { FilterSection,Input } from "./Filter.styled";
 import langContext from 'langContext';
 
-import locale from '../../materials/langauges.json';
+import locale from '../../shared/materials/langauges.json';
 import { setFilter } from 'redux/filter/filter-actions'; 
 
 export default function Filter(){
