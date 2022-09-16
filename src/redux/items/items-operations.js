@@ -19,12 +19,7 @@ export const fetchItems = createAsyncThunk(
 export const addItem = createAsyncThunk(
     "item/add", 
     async(_, thunkAPI) => {
-        // try {
-        //     const data = await api.addItemApi(item);
-        //     return data;
-        // } catch (error) {
-        //     return thunkAPI.rejectWithValue(error);
-        // }
+        
     }
 );
 
@@ -32,38 +27,10 @@ export const addItem = createAsyncThunk(
 export const removeItem = createAsyncThunk(
     "item/remofe", 
     async(_, thunkAPI) => {
-        // try {
-        //     const data = await api.removeItemApi(id);
-        //     return data;
-        // } catch (error) {
-        //     return thunkAPI.rejectWithValue(error);
-        // }
+       
     }
 );
 
-
-
-
-
-
-
-
-
-
-//Створюємо операцію
-// export const fetchItems = () => {
-//  const func = async (dispatch) => {
-//     try{
-//         dispatch(actions.fetchItemsLoading());
-//         const data = await api.getItemsApi();
-//         // if ( data.status !== 200){ throw new Error (`${data.status} | ${data.statusText}`)};
-//         dispatch(actions.fetchItemsSuccess(data));
-//     }catch(error){
-//         dispatch(actions.fetchItemsError(error.message));
-//     }
-//  };
-//  return func;
-// };
 
 // export const addItem = (item) => {
 // const func = async (dispatch) => {
