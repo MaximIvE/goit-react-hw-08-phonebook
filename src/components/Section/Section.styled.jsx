@@ -6,7 +6,7 @@ max-width: ${props => {if (props.element === "form") return "20vw"}};
 min-width: ${props => {if (props.element === "form") return "160px"}};
 
     &:first-child{
-        max-width: 20vw;
+        max-width: 200px;
         min-width: 140px;
         flex-basis: 20vw;
         box-shadow: inset 0 -2px 1px rgba(193,193,193,0.1), inset -2px -4px 4px rgba(0,0,0,0.2), 0 2px 1px rgba(193,193,193,0.1), 2px 4px 4px rgba(0,0,0,0.2);
@@ -14,6 +14,7 @@ min-width: ${props => {if (props.element === "form") return "160px"}};
         border-radius: 4px;
     }
     &:last-child{
+        max-width: 1000px;
         display: flex;
         flex-direction: column;
         align-items: stretch;
