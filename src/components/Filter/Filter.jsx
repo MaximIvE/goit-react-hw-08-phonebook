@@ -2,11 +2,11 @@ import { useContext } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
 import { nanoid } from 'nanoid';
-import { FilterSection,Input } from "./Filter.styled";
+import { FilterSection, Input } from "./Filter.styled";
 import langContext from 'langContext';
 
 import locale from '../../shared/materials/langauges.json';
-import { setFilter } from 'redux/filter/filter-actions'; 
+import { setFilter } from 'redux/filter/filter-slice'; 
 
 export default function Filter(){
 

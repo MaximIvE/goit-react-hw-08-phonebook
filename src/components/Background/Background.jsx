@@ -1,5 +1,5 @@
 import { useState} from 'react';
-import imageApi from '../../shared/api/imageApi';
+import {imageApi} from '../../shared/api/imageApi';
 import Modal from 'components/Modal';
 import ImageGallery from '../ImageGallery/ImageGallery';
 
@@ -15,6 +15,7 @@ export default function Background({changeBackground}){
     const onModal=async()=>{
         
         const data = await imageApi();
+        console.log(data);
         
         setBackgroundImg(data.hits);
         setShoweModal(true);

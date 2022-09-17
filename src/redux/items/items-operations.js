@@ -32,7 +32,6 @@ export const addItem = createAsyncThunk(
 export const removeItem = createAsyncThunk(
     "item/remove", 
     async(id, thunkAPI) => {
-        console.log("Запускається логіка по видаленню контакта");
         try {
             await api.removeItemApi(id);
             return id;

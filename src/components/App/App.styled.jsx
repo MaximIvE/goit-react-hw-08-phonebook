@@ -16,8 +16,6 @@ export const Container = styled.div`
     margin-right: auto;
     display: block;
     
-    
-    
     background-attachment: fixed;
     background-position: 50% 50%;
     height: 100vh;
@@ -30,7 +28,8 @@ export const Container = styled.div`
 `;
 
 export const Message = styled.h2`
-padding-top: 12px;
+padding-top: 20px;
+
 margin-top: 20px;
 text-align: center;
 font-style: italic;

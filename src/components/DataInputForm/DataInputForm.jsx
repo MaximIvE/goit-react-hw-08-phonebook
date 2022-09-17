@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import langContext from 'langContext';
 
 import locale from '../../shared/materials/langauges.json';
-import { DataInput,ButtonForm } from './DataInputForm.styled';
+import { DataInput, ButtonForm } from './DataInputForm.styled';
 
 
 const DataInputForm = ({addContact})=>{
@@ -25,6 +25,7 @@ const DataInputForm = ({addContact})=>{
         const content= locale[lang].phonebook;
 
         return (
+            
             <DataInput onSubmit={handleSubmit}>
                 <label htmlFor={idInputName}>{content.name}</label>
                 <input
@@ -51,6 +52,7 @@ const DataInputForm = ({addContact})=>{
                     >{content.buttonText}
                 </ButtonForm>
             </DataInput>
+            
         );
 };
 

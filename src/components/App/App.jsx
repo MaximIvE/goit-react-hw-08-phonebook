@@ -13,12 +13,16 @@ import backgroundImg from '../../images/background.jpg';
 
 // import { addItem, removeItems } from 'redux/items/items-actions';
 import { fetchItems, addItem, removeItem } from 'redux/items/items-operations';
+import { setFilter } from 'redux/filter/filter-slice'; 
 
 
 const  App = () => {
 
-  const  {items} = useSelector(store => store.contacts);
+  const {contacts} = useSelector(store => store);
+  const  {items, loading} = contacts;
   // console.log("items", items);
+  // console.log("loading", loading);
+
   //Відмальовування активної мови відбувається в Langaguge, а цей стейт потрібен для контексту
   const [langauge, setLangauge] = useState(()=>localContacts('langauge'));
   const [background, setBackground] = useState(()=>localContacts('background'));
@@ -52,8 +56,9 @@ const  App = () => {
    
   },[items, content.notific, dispatch]);
  
-  const removeConactApp = useCallback( id => {
-    dispatch(removeItem(id));
+  const removeConactApp = useCallback( async(id, length) => {
+    await dispatch(removeItem(id));
+    if (length === 1) dispatch(setFilter(""));
   },[dispatch]);
 
     return (
@@ -65,19 +70,21 @@ const  App = () => {
         changeLangauge = {useCallback( lang => setLangauge(lang),[setLangauge] )}
         changeBackground = {newbackground => setBackground(newbackground)}
       />
-          <Section>{content.phonebook.header}
+          <Section element="form">{content.phonebook.header}
             {<DataInputForm 
               addContact={addContact}
             />}
           </Section>
+
           {items.length > 0 
-          ? <Section>{content.contacts.header}
+          && <Section element="contacts">{content.contacts.header}
               <Filter />
               <Contacts 
                 removeConactApp={removeConactApp}
               />
-            </Section>
-          : <Message>{content.message}</Message>}
+            </Section>}
+
+          {(items.length === 0 && !loading) && <Message>{content.message}</Message>}
       </Container>
       </Background>
       </langContext. Provider>
