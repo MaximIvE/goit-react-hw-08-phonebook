@@ -7,6 +7,7 @@ export const Background = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     position: sticky;
+    height: 100vh;
 `;
 
 
