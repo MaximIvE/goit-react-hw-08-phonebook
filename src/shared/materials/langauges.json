@@ -21,11 +21,11 @@
             "header": "Phonebook",
             "name": "Name",
             "number": "Number",
-            "buttonText": "Add conact"
+            "buttonText": "Add contact"
             },
 
         "contacts":{
-            "header": "Conacts",
+            "header": "Contacts",
             "filtrText": "Find contacts by name",
             "filtrPlaceholder": "Name",
             "buttonText": "Delete"

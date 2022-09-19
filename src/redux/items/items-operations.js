@@ -25,6 +25,15 @@ export const addItem = createAsyncThunk(
         } catch (error) {
             return thunkAPI.rejectWithValue(error);
         } 
+    },
+    {
+        condition: (data, {getState}) => {
+            const{items} = getState().contacts;
+            if (items.find(item => item.name === data.name)) {
+                alert(data.name + " " + "вже є в контактах");
+                return false;
+            }
+        }
     }
 );
 

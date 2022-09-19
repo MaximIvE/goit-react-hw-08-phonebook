@@ -16,7 +16,8 @@ export const DataInput = styled.form`
 
 export const ButtonForm = styled(Button)`
 margin-top: 8px;
-width: 90px;
+width: 8em;
 margin-left: auto;
 margin-right: auto;
+font-size: 0.8em;
 `;

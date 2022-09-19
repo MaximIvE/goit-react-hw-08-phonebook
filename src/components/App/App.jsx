@@ -30,7 +30,6 @@ const  App = () => {
   const content = locale[langauge];
 
   const dispatch = useDispatch();
-
   function localContacts(key){
     const data = localStorage.getItem(key);
     if(!data){
@@ -51,7 +50,7 @@ const  App = () => {
 
 
   const addContact = useCallback((name, phone)=>{
-    if (items.find(item => item.name === name)) return alert(name + " " + content.notific);
+    // if (items.find(item => item.name === name)) return alert(name + " " + content.notific);
     dispatch( addItem({name, phone}) );
    
   },[items, content.notific, dispatch]);
