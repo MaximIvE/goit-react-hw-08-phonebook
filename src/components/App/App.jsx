@@ -53,7 +53,8 @@ const  App = () => {
     // if (items.find(item => item.name === name)) return alert(name + " " + content.notific);
     dispatch( addItem({name, phone}) );
    
-  },[items, content.notific, dispatch]);
+  // },[items, content.notific, dispatch]);
+  },[dispatch]);
  
   const removeConactApp = useCallback( async(id, length) => {
     await dispatch(removeItem(id));

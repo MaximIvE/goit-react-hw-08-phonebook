@@ -30,7 +30,7 @@ export const addItem = createAsyncThunk(
         condition: (data, {getState}) => {
             const{items} = getState().contacts;
             if (items.find(item => item.name === data.name)) {
-                alert(data.name + " " + "вже є в контактах");
+                alert(data.name + " вже є в контактах");
                 return false;
             }
         }
