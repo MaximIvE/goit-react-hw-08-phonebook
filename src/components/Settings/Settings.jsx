@@ -4,9 +4,10 @@ import Langauge from '../Langauge/Langauge';
 import Background from '../Background/Background';
 import Loader from 'components/Loader';
 
-export default function Settings({langauge, changeLangauge, changeBackground}){
+
+export default function Settings({changeLangauge, changeBackground}){
     const  {loading} = useSelector(store => store.contacts);
-    const lang = {langauge, changeLangauge};
+    const lang = {changeLangauge};
     const bg = {changeBackground}
     
     return(
@@ -14,7 +15,6 @@ export default function Settings({langauge, changeLangauge, changeBackground}){
             <Langauge {...lang}/>
             <Background {...bg}/>
             <WrapperLoader> {loading && <Loader height={20}/>} </WrapperLoader>
-            
         </Wrapper>
     )
 }

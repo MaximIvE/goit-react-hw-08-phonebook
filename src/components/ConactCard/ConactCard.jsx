@@ -15,7 +15,7 @@ function ConactCard({name, id, number, removeCard}){
         <Phone>{number}</Phone>
         <ButtonCard type='button' onClick={removeCard} name={id}>{content.buttonText}</ButtonCard>
     </Card>)
-}
+};
 
 export default memo(ConactCard);
 
@@ -24,4 +24,4 @@ ConactCard.propTypes={
     id: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
     removeCard: PropTypes.func.isRequired,
-}
+};

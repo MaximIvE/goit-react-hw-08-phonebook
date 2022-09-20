@@ -8,16 +8,12 @@ import PropTypes from 'prop-types';
 export default function Contacts({removeConactApp}){
     
     const {contacts, filter } = useSelector(store => store);
-    // const contacts = useSelector(store => store);
+    
     const { items } = contacts;
-    // console.log('store', contacts);
-    // console.log('filter', filter);
     const normalizeTodos = filter.toLowerCase();
-
     const visibleContacts = items.filter(contact => contact.name.toLowerCase().includes(normalizeTodos));
-
+    
     const getCardMarking = useMemo(() => {
-       
         return (visibleContacts.map( (user) =>
                 <ConactCard 
             key={user.name + user.id}

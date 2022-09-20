@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import * as api from "shared/api/itemsApi";
 
-
 //Створюємо операцію по запиту для отримання даних при першому завантаженнню сторінки
 export const fetchItems = createAsyncThunk(
     "items/fetch", 
@@ -26,15 +25,15 @@ export const addItem = createAsyncThunk(
             return thunkAPI.rejectWithValue(error);
         } 
     },
-    {
-        condition: (data, {getState}) => {
-            const{items} = getState().contacts;
-            if (items.find(item => item.name === data.name)) {
-                alert(data.name + " вже є в контактах");
-                return false;
-            }
-        }
-    }
+    // {
+    //     condition: (data, {getState}) => {
+    //         const{items} = getState().contacts;
+    //         if (items.find(item => item.name === data.name)) {
+    //             alert(data.name + Notification);
+    //             return false;
+    //         }
+    //     }
+    // }
 );
 
 //Створюємо операцію по запиту видаленню контакта з бекенду

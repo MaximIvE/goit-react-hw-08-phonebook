@@ -1,24 +1,24 @@
 import styled from 'styled-components';
 
-
+export const Background = styled.div`
+    background-color: rgba(255, 255, 255, 0.9); 
+    background-image:  url(${props=> props.bg});
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-attachment: fixed;
+`;
 
 export const Container = styled.div`
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    /* display: block; */
-    
-    background-attachment: fixed;
-    background-position: 50% 50%;
-    /* height: 100vh; */
-    
-    /* color: #fff; */
-    /* text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black; */
+    color: #fff; 
+    text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
 `;
 
 export const Message = styled.h2`
 padding-top: 20px;
-
 margin-top: 20px;
 text-align: center;
 font-style: italic;

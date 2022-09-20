@@ -1,7 +1,11 @@
-import{useState, useEffect} from 'react';
+import{useState, useEffect, useContext} from 'react';
 import { LangaugeStyled, Btn } from "./Langauge.styled";
 
-export default function Langauge({langauge, changeLangauge}){
+import langContext from 'langContext';
+
+export default function Langauge({changeLangauge}){
+
+    const langauge = useContext(langContext);
     const [choice, setChoise] = useState(()=>langauge ?? "Ua");
     
     useEffect(()=>{

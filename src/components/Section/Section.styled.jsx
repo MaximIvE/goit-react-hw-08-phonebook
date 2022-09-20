@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
     width: 85%;
     max-width: ${props => {if (props.element === "form") return "20vw"}};
     min-width: ${props => {if (props.element === "form") return "160px"}};
-    padding: 12px 8px 4px 8px;
+    padding: 4px 8px ;
     }
 padding: 2px;
 width: 100%;
@@ -23,14 +23,11 @@ width: 100%;
         align-items: stretch;
         background-color: rgba(0,0,0,0.1);
         border-radius: 4px;
-
+        padding: 4px 0 0 0;
     };
 `;
 
 export const Title = styled.h2`
     text-align: center;
     margin:  4px 0;
-    @media screen and (min-width:480px){
-        margin:  28px 0;
-    }
 `;
