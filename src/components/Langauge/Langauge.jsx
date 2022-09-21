@@ -13,13 +13,13 @@ export default function Langauge({changeLangauge}){
         changeLangauge(choice);
     },[choice, changeLangauge]);
     
-    const activeStyle=(Langauge)=>{
+    const activeStyle=(lang)=>{
         const active = {
             fontWeight: 600,
             cursor: 'auto',
             };
-        if(Langauge === choice) return active;
-    }
+        if(lang === choice) return active;
+    };
 
     return (
         <LangaugeStyled>

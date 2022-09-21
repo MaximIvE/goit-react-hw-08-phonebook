@@ -52,7 +52,6 @@ const  App = () => {
       <Background bg={background}>
         <Container>
             <Header
-                langauge={langauge} 
                 changeLangauge = {useCallback( lang => setLangauge(lang),[setLangauge] )}
                 changeBackground = {newbackground => setBackground(newbackground)}/>
             <hr/>

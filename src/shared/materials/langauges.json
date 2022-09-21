@@ -12,6 +12,18 @@
             "filtrPlaceholder": "Ім'я",
             "buttonText": "Видалити"
             },
+
+        "userform":{
+            "name": "Логін",
+            "email": "Пошта",
+            "password": "Пароль",
+            "registerbuttonText": "Реєстрація",
+            "loginbuttonText": "Вхід"
+            },
+        "pagesUser":{
+            "registerHeader": "Сторінка реєстрації користувача",
+            "loginHeader": "Виконайте вхід або зареєструйтесь"
+        },
         
             "message": "Додайте свій перший контакт.",
             "notific": " вже є в контактах."
@@ -30,6 +42,19 @@
             "filtrPlaceholder": "Name",
             "buttonText": "Delete"
             },
+
+        "userform":{
+            "name": "Login",
+            "email": "Email",
+            "password": "Password",
+            "registerbuttonText": "Registration",
+            "loginbuttonText": "Sign in"
+            },
+
+        "pagesUser":{
+            "registerHeader": "User registration page",
+            "loginHeader": "Sign in or register"
+        },
 
             "message": "No information.",
             "notific": " is already in contacts."

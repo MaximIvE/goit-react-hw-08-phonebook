@@ -1,18 +1,18 @@
 import Menu from "components/Menu";
+import UserMenu from "components/UserMenu";
 import Settings from "components/Settings";
 
-import  { HeaderStyled } from "./Header.styled";
+import  { HeaderStyled, WrapperUserMenu } from "./Header.styled";
 
-const Header = ({langauge, changeLangauge, changeBackground}) => {
+const Header = (props) => {
 
     return (
         <HeaderStyled>
             <Menu/>
-            <Settings 
-                langauge={langauge} 
-                changeLangauge = {changeLangauge}
-                changeBackground = {changeBackground}
-      />
+            <WrapperUserMenu>
+                <UserMenu/>
+                <Settings {...props}/>
+            </WrapperUserMenu>
         </HeaderStyled>
     )
 };
