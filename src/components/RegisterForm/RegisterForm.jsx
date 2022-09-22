@@ -8,7 +8,7 @@ import locale from '../../shared/materials/langauges.json';
 import { DataInput, ButtonForm, Input } from './RegisterForm.styled';
 
 
-const RegisterForm = ({addContact})=>{
+const RegisterForm = ({onSubmit})=>{
 
         const idInputName = nanoid();
         const idInputEmail = nanoid();
@@ -19,8 +19,8 @@ const RegisterForm = ({addContact})=>{
             const name = e.currentTarget.name.value;
             const email = e.currentTarget.email.value;
             const password = e.currentTarget.password.value;
-            console.log("name=",name,"; email=",email,"; password=",password);
-            // addContact(name, number);
+            // console.log("name=",name,"; email=",email,"; password=",password);
+            onSubmit({name, email, password});
             e.currentTarget.reset();
         };
 

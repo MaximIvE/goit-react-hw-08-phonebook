@@ -7,16 +7,16 @@ const initialState = {
     token: "",
     isLogin: false,
     loading: false,
-    arror: null,
+    error: null,
 };
 
 const authSlice = createSlice({
     name: "auth",
     initialState,
     extraReducers: {
-        [signup.pending]: (store)               =>  {return {...store,  loading: true,      error:null}},
+        [signup.pending]:   (store)             =>  {return {...store,  loading: true,      error:null}},
         [signup.fulfilled]: (store, {payload})  =>  {return {...store,  loading: false,     user: payload.user, token: payload.token,   isLogin: true}},
-        [signup.fulfilled]: (store, {payload})  =>  {return {...store,  loading: false,     error:payload}},
+        [signup.rejected]:  (store, {payload})  =>  {return {...store,  loading: false,     error: payload}},
     }
 });
 
