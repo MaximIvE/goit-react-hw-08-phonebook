@@ -1,11 +1,11 @@
 import React, { lazy, Suspense, useState, useEffect, useCallback }  from 'react';
 import {Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import langContext from 'langContext';
+import { getAuthisLogin } from 'redux/auth/auth-selectors';
 // import locale from '../../shared/materials/langauges.json';
 import backgroundImg from '../../images/background.jpg';
-
-
 import { Container, Background } from './App.styled';
 
 
@@ -17,12 +17,17 @@ const RegisterPage = lazy(() => import("pages/RegisterPage/RegisterPage"));
 const  App = () => {
   const [langauge, setLangauge] = useState(()=>localContacts('langauge'));
   const [background, setBackground] = useState(()=>localContacts('background'));
+  const isLogin = useSelector(getAuthisLogin);
+  
+  
 
   // const content = locale[langauge];
 
   function localContacts(key){
     const data = localStorage.getItem(key);
+    // console.log("localStorageData:", data);
     if(!data){
+      
       if(key === 'langauge')return'Ua';
       if(key === 'background')return backgroundImg;
     }
@@ -34,11 +39,13 @@ const  App = () => {
     localStorage.setItem('background', JSON.stringify(background));
   },[background]);
 
+  
+
   const UseRoutes = () => {
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <Routes>
-                <Route path="/contacts" element={<ContactsPage/>}/>
+                {isLogin && <Route path="/contacts" element={<ContactsPage/>}/>}
                 <Route path="/login" element={<LoginPage/>}/>
                 <Route path="/register" element={<RegisterPage/>}/>
                 <Route path="*" element={<LoginPage/>}/>

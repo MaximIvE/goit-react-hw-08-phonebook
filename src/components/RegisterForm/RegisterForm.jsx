@@ -21,7 +21,7 @@ const RegisterForm = ({onSubmit})=>{
             const password = e.currentTarget.password.value;
             // console.log("name=",name,"; email=",email,"; password=",password);
             onSubmit({name, email, password});
-            e.currentTarget.reset();
+            // e.currentTarget.reset();
         };
 
         const lang = useContext(langContext);
@@ -35,7 +35,6 @@ const RegisterForm = ({onSubmit})=>{
                     name="name"
                     type="text"
                     id={idInputName}
-                    placeholder="Andriano Crosslend"
                     required
                 />
                 
@@ -44,7 +43,6 @@ const RegisterForm = ({onSubmit})=>{
                     name="email"
                     type="email"
                     id={idInputEmail}
-                    placeholder="across@mail.com"
                     required
                 />
                 <label htmlFor={idInputPassword}>{content.password}</label>

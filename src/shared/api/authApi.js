@@ -12,12 +12,12 @@ export const registerNewUserApi = async (newUser) => {
 };
 
 export const loginUserApi = async (user) => {
-    const {data} = await instance.get("/users/login", user);
+    const {data} = await instance.post("/users/login", user);
     return data;
 };
 
 export const logoutUserApi = async (user) => {
-    const {data} = await instance.get("/users/logout", user);
+    const {data} = await instance.post("/users/logout", user);
     return data;
 };
 

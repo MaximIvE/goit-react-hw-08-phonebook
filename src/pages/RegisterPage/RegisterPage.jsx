@@ -14,7 +14,7 @@ const RegisterPage = () => {
     const content= locale[lang].pagesUser;
 
     const dispatch=useDispatch();
-    const {status, message, code} = useSelector(getAuthError);
+    const {status, message} = useSelector(getAuthError);
     const isLogin = useSelector(getAuthisLogin);
 
     const onRegister = (data) => {
@@ -22,9 +22,6 @@ const RegisterPage = () => {
         dispatch(signup(data))
     }
 
-    const codeMessage = () => {
-        return code === 11000 ? "Email in use" : message;
-    };
 
     if(isLogin){
         return <Navigate to="/contacts"/>
@@ -34,7 +31,7 @@ const RegisterPage = () => {
         <Wrapper>
             <h2>{content.registerHeader}</h2>
             <RegisterForm onSubmit={onRegister}/>
-            {status && <Error>{codeMessage()}</Error>}
+            {status && <Error>{message}</Error>}
         </Wrapper>
     );
 };

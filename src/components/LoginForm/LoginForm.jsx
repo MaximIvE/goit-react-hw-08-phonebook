@@ -8,19 +8,19 @@ import locale from '../../shared/materials/langauges.json';
 import { DataInput, ButtonForm, Input } from './LoginForm.styled';
 
 
-const LoginForm = ({addContact})=>{
+const LoginForm = ({onSubmit})=>{
 
-        const idInputName = nanoid();
+        const idInputEmail = nanoid();
         const idInputPassword = nanoid();
 
         const handleSubmit = e => {
             e.preventDefault();
-            const name = e.currentTarget.name.value;
+            const email = e.currentTarget.email.value;
           
             const password = e.currentTarget.password.value;
-            console.log("name=",name, "password=",password);
-            // addContact(name, number);
-            e.currentTarget.reset();
+            console.log("email=",email, "password=",password);
+            onSubmit({email, password});
+            // e.currentTarget.reset();
         };
 
         const lang = useContext(langContext);
@@ -29,12 +29,11 @@ const LoginForm = ({addContact})=>{
         return (
             
             <DataInput onSubmit={handleSubmit}>
-                <label htmlFor={idInputName}>{content.name}</label>
+                <label htmlFor={idInputEmail}>{content.email}</label>
                 <Input
-                    name="name"
-                    type="text"
-                    id={idInputName}
-                    placeholder="Andriano Crosslend"
+                    name="email"
+                    type="email"
+                    id={idInputEmail}
                     required
                 />
                 

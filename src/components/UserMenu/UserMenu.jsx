@@ -10,7 +10,7 @@ import { getAuthisLogin, getAuthUser} from 'redux/auth/auth-selectors';
     const LogOutMarkup = () => {
         return (<WrapperUserMenu>
                 <UserEmail>{user.email}</UserEmail>
-                <Btn>logout</Btn>
+                <Btn type="button" onClick={console.log("123")}>logout</Btn>
             </WrapperUserMenu>
         )
     }

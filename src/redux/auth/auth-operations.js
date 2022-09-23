@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import {registerNewUserApi}  from "../../shared/api/authApi";
+import {registerNewUserApi, loginUserApi}  from "../../shared/api/authApi";
 
 export const signup = createAsyncThunk(
     "auth/signup", 
@@ -8,14 +8,28 @@ export const signup = createAsyncThunk(
         try {
             const result = await registerNewUserApi(data);
             return result;
-        } catch (error) {
-            const status = error.response.status;
-            const message = error.response.data.message || error.message;
-            const code = error.response.data.code;
+        } catch ({response}) {
+            const {status, statusText: message } = response;
 
-            // console.log(error);
+            // console.log(response);
             // console.log({status, message, code});
-            return thunkAPI.rejectWithValue({status, message, code});
+            return thunkAPI.rejectWithValue({status, message});
+        }
+    }
+);
+
+export const login = createAsyncThunk(
+    "auth/login", 
+    async (data, thunkAPI) => {
+        console.log(data);
+        try {
+            const result = await loginUserApi(data);
+            console.log(result)
+            return result;
+        } catch ({response}) {
+            const {status, statusText: message } = response;
+
+            return thunkAPI.rejectWithValue({status, message});
         }
     }
 );
