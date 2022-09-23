@@ -21,10 +21,8 @@ export const signup = createAsyncThunk(
 export const login = createAsyncThunk(
     "auth/login", 
     async (data, thunkAPI) => {
-        console.log(data);
         try {
             const result = await loginUserApi(data);
-            console.log(result);
             return result;
         } catch ({response}) {
             const {status, statusText: message } = response;
@@ -37,14 +35,11 @@ export const login = createAsyncThunk(
 export const logout = createAsyncThunk(
     "auth/logout", 
     async (data, thunkAPI) => {
-        console.log(data);
         try {
             const result = await logoutUserApi(data);
-            console.log(result);
             return result;
         } catch ({response}) {
             const {status, statusText: message } = response;
-
             return thunkAPI.rejectWithValue({status, message});
         }
     }

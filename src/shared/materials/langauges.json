@@ -6,27 +6,39 @@
             "buttonText": "Додати"
             },
 
-        "contacts":{
-            "header": "Контакти",
-            "filtrText": "Пошук контактів за іменем",
-            "filtrPlaceholder": "Ім'я",
-            "buttonText": "Видалити"
+            "contacts":{
+                "header": "Контакти",
+                "filtrText": "Пошук контактів за іменем",
+                "filtrPlaceholder": "Ім'я",
+                "buttonText": "Видалити"
             },
 
-        "userform":{
-            "name": "Логін",
-            "email": "Пошта",
-            "password": "Пароль",
-            "registerbuttonText": "Реєстрація",
-            "loginbuttonText": "Вхід"
+            "userform":{
+                "name": "Логін",
+                "email": "Пошта",
+                "password": "Пароль",
+                "registerbuttonText": "Реєстрація",
+                "loginbuttonText": "Вхід"
             },
-        "pagesUser":{
-            "registerHeader": "Сторінка реєстрації користувача",
-            "loginHeader": "Виконайте вхід або зареєструйтесь"
-        },
-        
+
+            "pagesUser":{
+                "registerHeader": "Сторінка реєстрації користувача",
+                "loginHeader": "Виконайте вхід або зареєструйтесь"
+            },
+
+            "useMenu":{
+                "register": "реєстрація",
+                "login": "вхід",
+                "logout": "вихід"
+            },
+
+            "menu":{
+                "contacts": "контакти"
+            },
+            
             "message": "Додайте свій перший контакт.",
-            "notific": " вже є в контактах."
+            "notific": " вже є в контактах.",
+            "loading": "Завантаження"
         },
 
     "En": {"phonebook":{
@@ -36,27 +48,38 @@
             "buttonText": "Add contact"
             },
 
-        "contacts":{
-            "header": "Contacts",
-            "filtrText": "Find contacts by name",
-            "filtrPlaceholder": "Name",
-            "buttonText": "Delete"
+            "contacts":{
+                "header": "Contacts",
+                "filtrText": "Find contacts by name",
+                "filtrPlaceholder": "Name",
+                "buttonText": "Delete"
             },
 
-        "userform":{
-            "name": "Login",
-            "email": "Email",
-            "password": "Password",
-            "registerbuttonText": "Registration",
-            "loginbuttonText": "Sign in"
+            "userform":{
+                "name": "Login",
+                "email": "Email",
+                "password": "Password",
+                "registerbuttonText": "Registration",
+                "loginbuttonText": "Sign in"
             },
 
-        "pagesUser":{
-            "registerHeader": "User registration page",
-            "loginHeader": "Sign in or register"
-        },
+            "pagesUser":{
+                "registerHeader": "User registration page",
+                "loginHeader": "Sign in or register"
+            },
+
+            "useMenu":{
+                "register": "register",
+                "login": "login",
+                "logout": "logout"
+            },
+
+            "menu":{
+                "contacts": "contacts"
+            },
 
             "message": "No information.",
-            "notific": " is already in contacts."
+            "notific": " is already in contacts.",
+            "loading": "Loading"
         }
 }

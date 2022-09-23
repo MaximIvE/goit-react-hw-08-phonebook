@@ -13,7 +13,6 @@ import { getAuthError, getAuthisLogin } from 'redux/auth/auth-selectors';
 const LoginPage = () => {
     const lang = useContext(langContext);
     const content= locale[lang].pagesUser;
-    // console.log(content);
 
     const dispatch = useDispatch();
     const {status, message} = useSelector(getAuthError);

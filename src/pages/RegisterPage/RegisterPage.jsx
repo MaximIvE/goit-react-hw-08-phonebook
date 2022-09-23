@@ -22,7 +22,6 @@ const RegisterPage = () => {
         dispatch(signup(data))
     }
 
-
     if(isLogin){
         return <Navigate to="/contacts"/>
     }

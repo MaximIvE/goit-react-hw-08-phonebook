@@ -8,6 +8,8 @@ import { getAuthisLogin } from 'redux/auth/auth-selectors';
 import backgroundImg from '../../images/background.jpg';
 import { Container, Background } from './App.styled';
 
+import locale from "../../shared/materials/langauges.json";
+
 
 import Header from 'components/Header';
 const ContactsPage = lazy(() => import("pages/ContactsPage/ContactsPage"));
@@ -21,7 +23,7 @@ const  App = () => {
   
   
 
-  // const content = locale[langauge];
+  const content = locale[langauge];
 
   function localContacts(key){
     const data = localStorage.getItem(key);
@@ -43,7 +45,7 @@ const  App = () => {
 
   const UseRoutes = () => {
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div>{content.loading}...</div>}>
             <Routes>
                 {isLogin && <Route path="/contacts" element={<ContactsPage/>}/>}
                 <Route path="/login" element={<LoginPage/>}/>

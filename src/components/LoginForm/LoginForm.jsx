@@ -16,9 +16,7 @@ const LoginForm = ({onSubmit})=>{
         const handleSubmit = e => {
             e.preventDefault();
             const email = e.currentTarget.email.value;
-          
             const password = e.currentTarget.password.value;
-            console.log("email=",email, "password=",password);
             onSubmit({email, password});
             // e.currentTarget.reset();
         };
