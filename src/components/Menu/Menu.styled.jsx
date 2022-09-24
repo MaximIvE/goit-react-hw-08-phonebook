@@ -7,7 +7,7 @@ export const Nav = styled.nav`
 `;
 
 export const StyledLink = styled(NavLink)`
-padding: 20px;
+padding: 12px 20px;
 font-size: 1.4em;
 font-weight: 500;
 color: rgba(255, 255, 255, 0.96);

@@ -42,7 +42,6 @@ const  App = () => {
   },[background]);
 
   
-
   const UseRoutes = () => {
     return (
         <Suspense fallback={<div>{content.loading}...</div>}>

@@ -17,6 +17,7 @@ export const loginUserApi = async (user) => {
 };
 
 export const logoutUserApi = async (user) => {
+    instance.defaults.headers.common.authorization = user;
     const {data} = await instance.post("/users/logout");
     instance.defaults.headers.common.authorization = "";
     return data;
