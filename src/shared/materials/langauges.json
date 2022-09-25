@@ -38,6 +38,7 @@
             
             "message": "Додайте свій перший контакт.",
             "notific": " вже є в контактах.",
+            "notificInternet": "Немає підключення до Інтернету",
             "loading": "Завантаження"
         },
 
@@ -80,6 +81,7 @@
 
             "message": "No information.",
             "notific": " is already in contacts.",
+            "notificInternet": "No Internet connection",
             "loading": "Loading"
         }
 }

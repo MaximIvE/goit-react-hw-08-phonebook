@@ -19,7 +19,7 @@ export default function Contacts({removeConactApp}){
             key={user.name + user.id}
             id={user.id}
             name = {user.name}
-            number = {user.phone}
+            number = {user.number}
             removeCard={(e) => removeConactApp(e.currentTarget.name, visibleContacts.length)}/>
             )
         );

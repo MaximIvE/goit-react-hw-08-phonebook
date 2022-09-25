@@ -4,12 +4,14 @@ import * as api from "shared/api/itemsApi";
 //Створюємо операцію по запиту для отримання даних при першому завантаженнню сторінки
 export const fetchItems = createAsyncThunk(
     "items/fetch", 
-    async(_, thunkAPI) => {
+    async(token, thunkAPI) => {
         try {
-            const data = await api.getItemsApi();
+            const data = await api.getItemsApi(token);
             return data;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error);
+        } catch ({response}) {
+            console.log(response);
+            const {status, statusText: message } = response;
+            return thunkAPI.rejectWithValue({status, message});
         }
     }
 );
@@ -21,9 +23,11 @@ export const addItem = createAsyncThunk(
         try {
             const data = await api.addItemApi(item);
             return data;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error);
-        } 
+        } catch ({response}) {
+            console.log(response);
+            const {status, statusText: message } = response;
+            return thunkAPI.rejectWithValue({status, message});
+        }
     },
     // {
     //     condition: (data, {getState}) => {
@@ -43,8 +47,10 @@ export const removeItem = createAsyncThunk(
         try {
             await api.removeItemApi(id);
             return id;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error);
+        } catch ({response}) {
+            console.log(response);
+            const {status, statusText: message } = response;
+            return thunkAPI.rejectWithValue({status, message});
         }
     }
 );

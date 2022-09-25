@@ -3,7 +3,6 @@ import { Button } from '../../styles/placeholders.styled';
 
 
 export const DataInput = styled.form`
-  
     display: flex;
     flex-direction: column;
     padding: 4px 20px;

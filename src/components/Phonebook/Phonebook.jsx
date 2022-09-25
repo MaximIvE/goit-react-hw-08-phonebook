@@ -1,6 +1,7 @@
-import React, { useEffect, useCallback, useContext } from 'react';
+import React, { useEffect, useCallback, useContext, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, Message } from "./Phonebook.styled";
+import { Container, Message} from "./Phonebook.styled";
+
 
 import DataInputForm from '../DataInputForm/DataInputForm';
 import Section from '../Section/Section';
@@ -14,24 +15,31 @@ import { setFilter } from 'redux/filter/filter-slice';
 
 
 const  Phonebook = () => {
-
-  const {contacts} = useSelector(store => store);
+  const [isNotific, setIsNotific] = useState(false);
+  const {contacts, auth} = useSelector(store => store);
   const  {items, loading} = contacts;
 
   //Відмальовування активної мови відбувається в Langauge, а цей стейт потрібен для контексту
   const lang = useContext(langContext);
   const content = locale[lang];
-
   const dispatch = useDispatch();
   
   //Завантаження контактів з бекенду
   useEffect(()=>{
-    dispatch(fetchItems());
-  },[dispatch]);
+    dispatch(fetchItems(auth.token));
+  },[dispatch, auth.token]);
 
-  const addContact = useCallback((name, phone)=>{
+
+  useEffect(()=>{
+    setTimeout(() => {
+      setIsNotific(true);
+    }, 500);
+  },[]);
+  
+
+  const addContact = useCallback((name, number)=>{
     if (items.find(item => item.name === name)) return alert(name + " " + content.notific);
-   dispatch( addItem({name, phone}) );
+   dispatch( addItem({name, number}) );
   },[items, content.notific, dispatch]);
  
   const removeConactApp = useCallback( async(id, length) => {
@@ -55,7 +63,8 @@ const  Phonebook = () => {
               />
             </Section>}
 
-          {(items.length === 0 && !loading) && <Message>{content.message}</Message>}
+          {(items.length === 0 && !loading && isNotific) && <Message>{content.message}</Message>}
+          
       </Container>
     );
 };

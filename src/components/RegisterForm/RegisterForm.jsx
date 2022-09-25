@@ -8,7 +8,7 @@ import locale from '../../shared/materials/langauges.json';
 import { DataInput, ButtonForm, Input } from './RegisterForm.styled';
 
 
-const RegisterForm = ({onSubmit})=>{
+const RegisterForm = ({onSubmit, handleValue})=>{
 
         const idInputName = nanoid();
         const idInputEmail = nanoid();
@@ -32,6 +32,7 @@ const RegisterForm = ({onSubmit})=>{
             <DataInput onSubmit={handleSubmit}>
                 <label htmlFor={idInputName}>{content.name}</label>
                 <Input
+                    onChange={handleValue}
                     name="name"
                     type="text"
                     id={idInputName}
@@ -40,6 +41,7 @@ const RegisterForm = ({onSubmit})=>{
                 
                 <label htmlFor={idInputEmail}>{content.email}</label>
                 <Input
+                    onChange={handleValue}
                     name="email"
                     type="email"
                     id={idInputEmail}
@@ -47,6 +49,7 @@ const RegisterForm = ({onSubmit})=>{
                 />
                 <label htmlFor={idInputPassword}>{content.password}</label>
                 <Input
+                    onChange={handleValue}
                     name="password"
                     type="password"
                     id={idInputPassword}

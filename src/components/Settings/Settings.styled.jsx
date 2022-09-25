@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
 justify-content: flex-end;
 text-align: end;
-padding: 4px;
+padding: 8px;
 font-weight: 500;
 display: flex;
 height: 36px;

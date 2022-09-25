@@ -9,11 +9,12 @@ export const signup = createAsyncThunk(
             const result = await registerNewUserApi(data);
             return result;
         } catch ({response}) {
+            
             const {status, statusText: message } = response;
-
+            const visible=1;
             // console.log(response);
             // console.log({status, message, code});
-            return thunkAPI.rejectWithValue({status, message});
+            return thunkAPI.rejectWithValue({status, message, visible});
         }
     }
 );
@@ -25,9 +26,10 @@ export const login = createAsyncThunk(
             const result = await loginUserApi(data);
             return result;
         } catch ({response}) {
+            console.log(response);
             const {status, statusText: message } = response;
-
-            return thunkAPI.rejectWithValue({status, message});
+            const visible=1;
+            return thunkAPI.rejectWithValue({status, message, visible});
         }
     }
 );
@@ -40,7 +42,8 @@ export const logout = createAsyncThunk(
             return result;
         } catch ({response}) {
             const {status, statusText: message } = response;
-            return thunkAPI.rejectWithValue({status, message});
+            const visible=1;
+            return thunkAPI.rejectWithValue({status, message, visible});
         }
     }
 );

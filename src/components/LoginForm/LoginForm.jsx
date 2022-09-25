@@ -8,7 +8,7 @@ import locale from '../../shared/materials/langauges.json';
 import { DataInput, ButtonForm, Input } from './LoginForm.styled';
 
 
-const LoginForm = ({onSubmit})=>{
+const LoginForm = ({onSubmit, handleValue})=>{
 
         const idInputEmail = nanoid();
         const idInputPassword = nanoid();
@@ -24,11 +24,13 @@ const LoginForm = ({onSubmit})=>{
         const lang = useContext(langContext);
         const content= locale[lang].userform;
 
+
         return (
             
             <DataInput onSubmit={handleSubmit}>
                 <label htmlFor={idInputEmail}>{content.email}</label>
-                <Input
+                <Input 
+                onChange={handleValue}
                     name="email"
                     type="email"
                     id={idInputEmail}
@@ -37,6 +39,7 @@ const LoginForm = ({onSubmit})=>{
                 
                 <label htmlFor={idInputPassword}>{content.password}</label>
                 <Input
+                    onChange={handleValue}
                     name="password"
                     type="password"
                     id={idInputPassword}

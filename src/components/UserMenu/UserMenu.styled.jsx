@@ -22,7 +22,7 @@ export const WrapperUserMenu = styled.div`
     display: flex;
     align-items: center;
     
-    padding: 8px 0;
+    padding: 0 8px;
 `;
 
 export const UserEmail = styled.p`

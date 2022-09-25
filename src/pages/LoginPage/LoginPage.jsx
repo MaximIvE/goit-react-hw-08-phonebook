@@ -9,13 +9,14 @@ import langContext from 'langContext';
 import locale from '../../shared/materials/langauges.json';
 import { login } from 'redux/auth/auth-operations';
 import { getAuthError, getAuthisLogin } from 'redux/auth/auth-selectors';
+import { changeError} from "../../redux/auth/auth-slice";
 
 const LoginPage = () => {
-    const lang = useContext(langContext);
+        const lang = useContext(langContext);
     const content= locale[lang].pagesUser;
 
     const dispatch = useDispatch();
-    const {status, message} = useSelector(getAuthError);
+    const {status, message, visible} = useSelector(getAuthError);
     const isLogin = useSelector(getAuthisLogin);
 
     const onLogin = (data) => {
@@ -24,13 +25,26 @@ const LoginPage = () => {
 
     if(isLogin){
         return <Navigate to="/contacts"/>
+    };
+
+    const handleValue = () => {
+        if (!status) return;
+        dispatch(changeError(0));
     }
 
+    if (status &&  visible === 1){
+        setTimeout(() => {
+            dispatch(changeError(0));
+        }, 4000);
+    };
+    
+    console.log("status", status);
+    console.log("message", message);
     return (
         <Wrapper>
             <h2>{content.loginHeader}</h2>
-            <LoginForm onSubmit={onLogin}/>
-            {status && <Error>{message}</Error>}
+            <LoginForm onSubmit={onLogin} handleValue={handleValue}/>
+            {(status && status!== null ) && <Error visible={visible}>{"message Bad Internet"}</Error>}
         </Wrapper>
     )
 }

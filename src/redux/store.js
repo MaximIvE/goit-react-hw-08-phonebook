@@ -1,5 +1,5 @@
 import { configureStore, combineReducers  } from '@reduxjs/toolkit';
-import { persistStore, persistReducer } from 'redux-persist';
+import { persistStore, persistReducer, PERSIST } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import itemsSlice from './items/items-slice';
@@ -24,7 +24,7 @@ export const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware => getDefaultMiddleware({
       serializableCheck: {
-        
+        ignoredActions: [PERSIST],
       }}),
 });
 

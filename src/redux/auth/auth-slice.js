@@ -24,7 +24,12 @@ const authSlice = createSlice({
         [logout.pending]:   (store)             =>  {return {...store,  loading: true,      error:null}},
         [logout.fulfilled]: (store)             =>  {return {...store,  loading: false,     user: {}, token: "",   isLogin: false}},
         [logout.rejected]:  (store, {payload})  =>  {return {...store,  loading: false,     error: payload}},
-    }
+    },
+    reducers: {
+        changeError: (store,{payload}) => {return{...store, error: {...store.error, visible: payload},}}
+    },
+    
 });
+export const {changeError} = authSlice.actions;
 
 export default authSlice.reducer;
