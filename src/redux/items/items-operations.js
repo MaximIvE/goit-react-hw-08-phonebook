@@ -9,7 +9,6 @@ export const fetchItems = createAsyncThunk(
             const data = await api.getItemsApi(token);
             return data;
         } catch ({response}) {
-            console.log(response);
             const {status, statusText: message } = response;
             return thunkAPI.rejectWithValue({status, message});
         }
@@ -24,7 +23,6 @@ export const addItem = createAsyncThunk(
             const data = await api.addItemApi(item);
             return data;
         } catch ({response}) {
-            console.log(response);
             const {status, statusText: message } = response;
             return thunkAPI.rejectWithValue({status, message});
         }
@@ -48,7 +46,6 @@ export const removeItem = createAsyncThunk(
             await api.removeItemApi(id);
             return id;
         } catch ({response}) {
-            console.log(response);
             const {status, statusText: message } = response;
             return thunkAPI.rejectWithValue({status, message});
         }
