@@ -42,7 +42,7 @@ const RegisterPage = () => {
         <Wrapper>
             <h2>{content.registerHeader}</h2>
             <RegisterForm onSubmit={onRegister} handleValue={handleValue}/>
-            {(status && message) && <Error visible={visible}>{message || " "}</Error>}
+            {(status > 0 && status !== 200) && <Error visible={visible}>{message}</Error>}
         </Wrapper>
     );
 };

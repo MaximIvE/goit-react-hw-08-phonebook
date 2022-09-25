@@ -38,13 +38,11 @@ const LoginPage = () => {
         }, 4000);
     };
     
-    console.log("status", status);
-    console.log("message", message);
     return (
         <Wrapper>
             <h2>{content.loginHeader}</h2>
             <LoginForm onSubmit={onLogin} handleValue={handleValue}/>
-            {(status && status!== null ) && <Error visible={visible}>{"message Bad Internet"}</Error>}
+            {(status > 0 && status !== 200) && <Error visible={visible}>{message}</Error>}
         </Wrapper>
     )
 }

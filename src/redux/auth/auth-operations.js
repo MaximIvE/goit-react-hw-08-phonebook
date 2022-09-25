@@ -26,7 +26,7 @@ export const login = createAsyncThunk(
             const result = await loginUserApi(data);
             return result;
         } catch ({response}) {
-            console.log(response);
+            // console.log(response);
             const {status, statusText: message } = response;
             const visible=1;
             return thunkAPI.rejectWithValue({status, message, visible});

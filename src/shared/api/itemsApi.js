@@ -13,10 +13,7 @@ export const getItemsApi = async (token) => {
 };
 
 export const addItemApi = async (data) => {
-    console.log("data", data);
-    console.log(data);
     const {data: result} = await instance.post("/contacts", data);
-    console.log("result", result);
     return result;
 };
 

@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Error = styled.p`
-    opacity:  ${props => { console.log(props); return props.visible}};
+    opacity:  ${props => {return props.visible}};
     display: inline-block;
     padding: 4px 8px;
     color: rgba(255, 255, 255, 0.96);
